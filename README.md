@@ -1,13 +1,13 @@
 # Velocity Alert Plugin
 ## Overview
-The Velocity Alert Plugin is a robust tool designed to enhance your Velocity API experience. It provides real-time notifications and alerts for important events in your Velocity API usage, ensuring you never miss an update.
+A simple Velocity Plugin that alert/announce every player in your entire network server.
 
 ## Features
-1. Real-Time Notifications.
-2. Easy Integration.
+* /alert <message>
+* Permission node is `alert.command.permission`
 
 ## Install
-1. Download the Velocity Alert Plugin from [GitHub](/build/Alert-1.4.jar)
-2. Place the Plugin in the plugin folder of your proxy server
-3. Restart your proxy and voilà! There you go
+1. Download the Velocity Alert Plugin from [GitHub](https://github.com/Anwenden001/Velocity-Alert-Plugin/releases/tag/v1.4)
+2. Place the Plugin in the plugin folder in your proxy server
+3. Restart your proxy and Voilà! That's it
 
