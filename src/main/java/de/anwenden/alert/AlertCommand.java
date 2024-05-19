@@ -24,7 +24,7 @@ public class AlertCommand implements SimpleCommand {
     public void execute(final Invocation invocation) {
         CommandSource source = invocation.source();
         String[] args = invocation.arguments();
-        String argsAsString = String.join(" ", args); // Verbindet die Argumente mit einem Leerzeichen
+        String argsAsString = String.join(" ", args); // Connect an argument with a blank space
         for (Player player : server.getAllPlayers()) {
             player.sendMessage(Component.text("[ALERT] ", NamedTextColor.RED
                     ).append(Component.text(argsAsString, NamedTextColor.WHITE)));
