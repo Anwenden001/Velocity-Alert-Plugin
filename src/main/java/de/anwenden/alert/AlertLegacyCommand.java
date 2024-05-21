@@ -4,9 +4,6 @@ import com.velocitypowered.api.command.CommandSource;
 import com.velocitypowered.api.command.SimpleCommand;
 import com.velocitypowered.api.proxy.Player;
 import net.kyori.adventure.text.TextComponent;
-import net.kyori.adventure.text.minimessage.MiniMessage;
-import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;
-import net.kyori.adventure.text.minimessage.tag.standard.StandardTags;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 
 import static de.anwenden.alert.Alert.server;
@@ -19,8 +16,9 @@ public class AlertLegacyCommand implements SimpleCommand {
         String[] args = invocation.arguments();
         String argsAsString = String.join(" ", args); // Connect an argument with a blank space
 
+
         LegacyComponentSerializer serializer = LegacyComponentSerializer.builder().build();
-        TextComponent textComponent = (TextComponent) serializer.deserialize(argsAsString.replace('&','§'));
+        TextComponent textComponent =  Alert.settings.getAlertLegacyDefault().append(serializer.deserialize(argsAsString.replace('&','§')));
 
         for (Player player : server.getAllPlayers()) {
             player.sendMessage(textComponent);

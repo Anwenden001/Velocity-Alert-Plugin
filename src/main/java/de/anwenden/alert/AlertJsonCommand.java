@@ -19,7 +19,7 @@ public class AlertJsonCommand implements SimpleCommand {
         String argsAsString = String.join(" ", args); // Connect an argument with a blank space
 
         GsonComponentSerializer serializer = GsonComponentSerializer.gson();
-        TextComponent textComponent = (TextComponent) serializer.deserialize(argsAsString);
+        TextComponent textComponent = Alert.settings.getAlertJsonDefault().append((TextComponent) serializer.deserialize(argsAsString));
 
         for (Player player : server.getAllPlayers()) {
             player.sendMessage(textComponent);

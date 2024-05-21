@@ -22,14 +22,8 @@ public class AlertXmlCommand implements SimpleCommand {
         String argsAsString = String.join(" ", args); // Connect an argument with a blank space
 
         MiniMessage serializer = MiniMessage.miniMessage();
-//                .tags(TagResolver.builder()
-//                        .resolver(StandardTags.color())
-//                        .resolver(StandardTags.decorations())
-//                        .resolver(this.someResolvers)
-//                        .build()
-//                )
-//                .build();
-        TextComponent textComponent = (TextComponent) serializer.deserialize(argsAsString);
+
+        TextComponent textComponent = Alert.settings.getAlertXmlDefault().append((TextComponent) serializer.deserialize(argsAsString));
 
         for (Player player : server.getAllPlayers()) {
             player.sendMessage(textComponent);
