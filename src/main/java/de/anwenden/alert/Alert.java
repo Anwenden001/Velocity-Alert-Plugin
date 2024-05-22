@@ -50,21 +50,21 @@ public class Alert {
             case "xml":
                 commandManager.register(commandManager.metaBuilder(s).build(), new AlertXmlCommand());
                 break;
-            case "legacy":
+            default:
                 commandManager.register(commandManager.metaBuilder(s).build(), new AlertLegacyCommand());
                 break;
         }
 
         s = "alertraw";
         switch (settings.getAlertRawDefault().toLowerCase()) {
-            case "json":
-                commandManager.register(commandManager.metaBuilder(s).build(), new AlertJsonCommand());
+            case "legacy":
+                commandManager.register(commandManager.metaBuilder(s).build(), new AlertLegacyCommand());
                 break;
             case "xml":
                 commandManager.register(commandManager.metaBuilder(s).build(), new AlertXmlCommand());
                 break;
-            case "legacy":
-                commandManager.register(commandManager.metaBuilder(s).build(), new AlertLegacyCommand());
+            default:
+                commandManager.register(commandManager.metaBuilder(s).build(), new AlertJsonCommand());
                 break;
         }
 
@@ -72,7 +72,7 @@ public class Alert {
         commandManager.register(commandManager.metaBuilder("alertXml").build(), new AlertXmlCommand());
         commandManager.register(commandManager.metaBuilder("alertJson").build(), new AlertJsonCommand());
 
-
+        commandManager.register(commandManager.metaBuilder("alertReload").build(), new ReloadSettingsCommand());
     }
 
     public static ProxyServer getServer() {
