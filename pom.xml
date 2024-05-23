@@ -6,7 +6,7 @@
 
     <groupId>de.Anwenden</groupId>
     <artifactId>Alert</artifactId>
-    <version>1.5-snapshot</version>
+    <version>1.5</version>
     <packaging>jar</packaging>
 
     <name>Alert</name>

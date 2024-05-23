@@ -10,15 +10,10 @@ import com.velocitypowered.api.proxy.ProxyServer;
 import org.slf4j.Logger;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Scanner;
 
 
-@Plugin(id = "alert", name = "Alert", version = "1.5-snapshot", authors = "Anwenden & Blockyward")
+@Plugin(id = "alert", name = "Alert", version = "1.5", authors = "Anwenden & Blockyward")
 public class Alert {
 
     public static ProxyServer server;
