@@ -16,7 +16,7 @@ public class AlertLegacyCommand implements SimpleCommand {
 
 
         LegacyComponentSerializer serializer = LegacyComponentSerializer.builder().build();
-        TextComponent textComponent =  Alert.settings.getAlertLegacyDefault().append(serializer.deserialize(argsAsString.replace('&','§')));
+        TextComponent textComponent = Alert.settings.getAlertLegacyDefault().append(serializer.deserialize(argsAsString.replace('&', '§')));
 
         for (Player player : server.getAllPlayers()) {
             player.sendMessage(textComponent);

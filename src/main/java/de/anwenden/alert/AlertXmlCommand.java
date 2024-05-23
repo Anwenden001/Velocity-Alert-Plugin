@@ -17,7 +17,7 @@ public class AlertXmlCommand implements SimpleCommand {
 
         MiniMessage serializer = MiniMessage.miniMessage();
 
-        TextComponent textComponent = Alert.settings.getAlertXmlDefault().append( serializer.deserialize(argsAsString));
+        TextComponent textComponent = Alert.settings.getAlertXmlDefault().append(serializer.deserialize(argsAsString));
 
         for (Player player : server.getAllPlayers()) {
             player.sendMessage(textComponent);
