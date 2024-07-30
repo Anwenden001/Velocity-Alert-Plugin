@@ -5,10 +5,14 @@ import com.velocitypowered.api.proxy.Player;
 import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 
-import static de.anwenden.alert.Alert.server;
 
 public class AlertXmlCommand implements SimpleCommand {
 
+    private final Settings settings;
+
+    public AlertXmlCommand(Settings settings) {
+        this.settings = settings;
+    }
 
     @Override
     public void execute(final Invocation invocation) {
@@ -17,12 +21,12 @@ public class AlertXmlCommand implements SimpleCommand {
 
         MiniMessage serializer = MiniMessage.miniMessage();
 
-        TextComponent textComponent = Alert.settings.getAlertXmlDefault().append(serializer.deserialize(argsAsString));
+        TextComponent textComponent = this.settings.getAlertXmlDefault().append(serializer.deserialize(argsAsString));
 
-        for (Player player : server.getAllPlayers()) {
+        for (Player player : settings.getProxy().getAllPlayers()) {
             player.sendMessage(textComponent);
         }
-        server.getConsoleCommandSource().sendMessage(textComponent);
+        settings.getProxy().getConsoleCommandSource().sendMessage(textComponent);
 
     }
 

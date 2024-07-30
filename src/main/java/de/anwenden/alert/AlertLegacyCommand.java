@@ -5,23 +5,27 @@ import com.velocitypowered.api.proxy.Player;
 import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 
-import static de.anwenden.alert.Alert.server;
 
 public class AlertLegacyCommand implements SimpleCommand {
+
+    private final Settings settings;
+
+    public AlertLegacyCommand(Settings settings) {
+        this.settings = settings;
+    }
 
     @Override
     public void execute(final Invocation invocation) {
         String[] args = invocation.arguments();
         String argsAsString = String.join(" ", args); // Connect an argument with a blank space
 
-
         LegacyComponentSerializer serializer = LegacyComponentSerializer.builder().build();
-        TextComponent textComponent = Alert.settings.getAlertLegacyDefault().append(serializer.deserialize(argsAsString.replace('&', '§')));
+        TextComponent textComponent = this.settings.getAlertLegacyDefault().append(serializer.deserialize(argsAsString.replace('&', '§')));
 
-        for (Player player : server.getAllPlayers()) {
+        for (Player player : settings.getProxy().getAllPlayers()) {
             player.sendMessage(textComponent);
         }
-        server.getConsoleCommandSource().sendMessage(textComponent);
+        settings.getProxy().getConsoleCommandSource().sendMessage(textComponent);
 
     }
 

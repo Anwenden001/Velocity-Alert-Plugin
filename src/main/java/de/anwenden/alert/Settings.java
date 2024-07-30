@@ -1,9 +1,12 @@
 package de.anwenden.alert;
 
+import com.velocitypowered.api.proxy.ProxyServer;
+import lombok.Data;
 import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.serializer.gson.GsonComponentSerializer;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
+import org.slf4j.Logger;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,16 +16,23 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Scanner;
 
-
+@Data
 public class Settings {
 
     private final Path dataDirectory;
 
     private HashMap<String, String> hashMap;
 
-    public Settings(Path dataDirectory) {
+    private final Logger logger;
+    private final ProxyServer proxy;
+    private boolean isDefaultSet = false;
+
+    public Settings(Path dataDirectory, Logger logger, ProxyServer server) {
         this.dataDirectory = dataDirectory;
         this.hashMap = new HashMap<>();
+        this.logger = logger;
+        this.proxy = server;
+
         load();
     }
 
@@ -57,7 +67,6 @@ public class Settings {
     public void load() {
         hashMap = new HashMap<>();
         File file = dataDirectory.toFile();
-        var logger = Alert.getLogger();
 
         logger.info("Loading settings...");
         if (file.exists()) {
@@ -86,9 +95,9 @@ public class Settings {
 
     private void create(File file, Path parent) {
 
-        var logger = Alert.getLogger();
         logger.info("Creating settings...");
         try {
+            //Result of 'File.mkdirs()' is ignored
             parent.toFile().mkdirs();
 
             if (file.createNewFile()) {
@@ -144,7 +153,7 @@ public class Settings {
         String[] split = line.split("=");
         if (split.length == 2) {
             if (hashMap.containsKey(split[0])) {
-                Alert.getLogger().error("Error loading settings Double use of a value");
+                this.getLogger().error("Error loading settings Double use of a value");
             } else {
                 if (split[1].trim().isEmpty() || split[0].trim().isEmpty()) {
                     return false;
@@ -155,8 +164,6 @@ public class Settings {
                 return split[1].trim().charAt(0) == '"' && split[1].trim().charAt(split[1].trim().length() - 1) == '"';
             }
         }
-
-
         return false;
     }
 

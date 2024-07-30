@@ -6,9 +6,13 @@ import net.kyori.adventure.text.TextComponent;
 import net.kyori.adventure.text.serializer.gson.GsonComponentSerializer;
 
 
-import static de.anwenden.alert.Alert.server;
-
 public class AlertJsonCommand implements SimpleCommand {
+
+    private final Settings settings;
+
+    public AlertJsonCommand(Settings settings) {
+        this.settings = settings;
+    }
 
     @Override
     public void execute(final Invocation invocation) {
@@ -16,13 +20,12 @@ public class AlertJsonCommand implements SimpleCommand {
         String argsAsString = String.join(" ", args); // Connect an argument with a blank space
 
         GsonComponentSerializer serializer = GsonComponentSerializer.gson();
-        TextComponent textComponent = Alert.settings.getAlertJsonDefault().append(serializer.deserialize(argsAsString));
+        TextComponent textComponent = this.settings.getAlertJsonDefault().append(serializer.deserialize(argsAsString));
 
-        for (Player player : server.getAllPlayers()) {
+        for (Player player : settings.getProxy().getAllPlayers()) {
             player.sendMessage(textComponent);
         }
-        server.getConsoleCommandSource().sendMessage(textComponent);
-
+        settings.getProxy().getConsoleCommandSource().sendMessage(textComponent);
     }
 
 
