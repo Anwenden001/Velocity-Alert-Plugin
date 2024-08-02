@@ -30,12 +30,16 @@ public class Alert {
     public void onProxyInitialization(ProxyInitializeEvent event) {
         CommandManager commandManager = settings.getProxy().getCommandManager();
 
-        settings.load();
+        //Remove later!
+        //settings.load();
 
+        ReloadSettingsCommand reloadSettingsCommand = new ReloadSettingsCommand(settings);
+        reloadSettingsCommand.setDefault("alert");
+        reloadSettingsCommand.setDefault("alertraw");
         commandManager.register(commandManager.metaBuilder("alertLegacy").build(), new AlertLegacyCommand(settings));
         commandManager.register(commandManager.metaBuilder("alertXml").build(), new AlertXmlCommand(settings));
         commandManager.register(commandManager.metaBuilder("alertJson").build(), new AlertJsonCommand(settings));
-        commandManager.register(commandManager.metaBuilder("alertReload").build(), new ReloadSettingsCommand(settings));
+        commandManager.register(commandManager.metaBuilder("alertReload").build(), reloadSettingsCommand);
     }
 
 }

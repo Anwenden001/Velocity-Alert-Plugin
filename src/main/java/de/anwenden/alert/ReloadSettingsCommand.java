@@ -31,7 +31,7 @@ public class ReloadSettingsCommand implements SimpleCommand {
         return invocation.source().hasPermission("alert.command.permission");
     }
 
-    private void setDefault(String s) {
+    public void setDefault(String s) {
         lock.lock();
         if (settings.isDefaultSet()) {
             settings.getProxy().getCommandManager().unregister(s);
