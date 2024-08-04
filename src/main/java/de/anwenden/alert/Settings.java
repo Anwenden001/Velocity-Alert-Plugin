@@ -127,7 +127,7 @@ public class Settings {
                             # To use HEX colors in xml, format the color code as follows <#00AAAA> for the HEX color #00AAAA.
                                                         
                             alert_default = "legacy"
-                            alertraw_default = "xml"
+                            alertraw_default = "json"
                                                         
                                                         
                             # In this section you can customize the alert message prefixes and colors.
