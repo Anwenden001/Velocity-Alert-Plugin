@@ -14,7 +14,7 @@ import java.io.File;
 import java.nio.file.Path;
 
 @Data
-@Plugin(id = "alert", name = "Alert", version = "1.5", authors = "Anwenden & Blockyward")
+@Plugin(id = "alert", name = "Alert", version = "1.6", authors = "Anwenden & Blockyward")
 public class Alert {
 
     private final Settings settings;
@@ -30,8 +30,6 @@ public class Alert {
     public void onProxyInitialization(ProxyInitializeEvent event) {
         CommandManager commandManager = settings.getProxy().getCommandManager();
 
-        //Remove later!
-        //settings.load();
 
         ReloadSettingsCommand reloadSettingsCommand = new ReloadSettingsCommand(settings);
         reloadSettingsCommand.setDefault("alert");

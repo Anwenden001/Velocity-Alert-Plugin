@@ -113,7 +113,7 @@ public class Settings {
             String s =
                     """
                             # This is the configuration file for the Alert Plugin for Velocity.
-                            # This configuration file is generated in version 1.5.
+                            # This configuration file is generated in version 1.6.
                                                         
                                                         
                             # Here you can change the code format of the /alert and /alertraw commands.
@@ -127,9 +127,7 @@ public class Settings {
                             # To use HEX colors in xml, format the color code as follows <#00AAAA> for the HEX color #00AAAA.
                                                         
                             alert_default = "legacy"
-                            alertraw_default = "json"
-                                                        
-                            # The above configuration can't be changed with /alertreload. You will need to restart your proxy for the changes to take effect.
+                            alertraw_default = "xml"
                                                         
                                                         
                             # In this section you can customize the alert message prefixes and colors.
@@ -138,7 +136,7 @@ public class Settings {
                             alert_json = "{"color":"red","text": "[ALERT] "}"
                             alert_xml = "<red>[ALERT]</red> "
                                                         
-                            # You can reload these 3 configurations with /alertreload.
+                            # If you have changed any configuration, you can use the /alertreload command to load it.
                             # If you have any questions or have found a problem, please report it to https://github.com/Anwenden001/Velocity-Alert-Plugin/issues
                             """;
 
