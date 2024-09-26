@@ -1,3 +1,5 @@
+![Modrinth Downloads](https://img.shields.io/modrinth/dt/velocity-alert?label=Modrinth%20Downloads&color=brightgreen)
+![GitHub Releases](https://img.shields.io/github/downloads/Anwenden001/Velocity-Alert-Plugin/total?label=GitHub%20Downloads&color=blue)
 # Velocity Alert Plugin
 ## Overview
 A simple Velocity plugin that alerts/announces players in your entire server network. You can use this feature to warn players about an upcoming server/proxy restart, or announce any other important message you want to mention.
