@@ -21,7 +21,7 @@ public class AlertXmlCommand implements SimpleCommand {
 
         MiniMessage serializer = MiniMessage.miniMessage();
 
-        TextComponent textComponent = this.settings.getAlertXmlDefault().append(serializer.deserialize(argsAsString));
+        TextComponent textComponent = this.settings.getAlertXmlDefault().append(serializer.deserialize(argsAsString).colorIfAbsent(this.settings.getDefaultColor()));
 
         for (Player player : settings.getProxy().getAllPlayers()) {
             player.sendMessage(textComponent);

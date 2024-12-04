@@ -20,7 +20,7 @@ public class AlertLegacyCommand implements SimpleCommand {
         String argsAsString = String.join(" ", args); // Connect an argument with a blank space
 
         LegacyComponentSerializer serializer = LegacyComponentSerializer.builder().build();
-        TextComponent textComponent = this.settings.getAlertLegacyDefault().append(serializer.deserialize(argsAsString.replace('&', '§')));
+        TextComponent textComponent = this.settings.getAlertLegacyDefault().append(serializer.deserialize(argsAsString.replace('&', '§')).colorIfAbsent(this.settings.getDefaultColor()));
 
         for (Player player : settings.getProxy().getAllPlayers()) {
             player.sendMessage(textComponent);

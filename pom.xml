@@ -6,7 +6,7 @@
 
     <groupId>de.Anwenden</groupId>
     <artifactId>Alert</artifactId>
-    <version>1.6</version>
+    <version>1.7</version>
     <packaging>jar</packaging>
 
     <name>Alert</name>
@@ -164,5 +164,18 @@
             <version>1.18.30</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.10.0</version> <!-- Verwende diese Version oder eine stabile Version, falls 5.11.1 nicht verfügbar ist -->
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.10.0</version> <!-- Verwende dieselbe Version -->
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 </project>

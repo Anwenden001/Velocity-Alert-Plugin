@@ -3,6 +3,7 @@ package de.anwenden.alert;
 import com.velocitypowered.api.proxy.ProxyServer;
 import lombok.Data;
 import net.kyori.adventure.text.TextComponent;
+import net.kyori.adventure.text.format.TextColor;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.serializer.gson.GsonComponentSerializer;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
@@ -15,6 +16,8 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Scanner;
+
+import static net.kyori.adventure.text.format.TextColor.fromHexString;
 
 @Data
 public class Settings {
@@ -63,6 +66,10 @@ public class Settings {
         return serializer.deserialize(s.replace('&', '§'));
     }
 
+    public TextColor getDefaultColor(){
+        String s = hashMap.getOrDefault("default_message_color", "ffffff");
+        return fromHexString("#"+ s);
+    }
 
     public void load() {
         hashMap = new HashMap<>();
@@ -113,7 +120,7 @@ public class Settings {
             String s =
                     """
                             # This is the configuration file for the Alert Plugin for Velocity.
-                            # This configuration file is generated in version 1.6.
+                            # This configuration file is generated in version 1.7.
                                                         
                                                         
                             # Here you can change the code format of the /alert and /alertraw commands.
@@ -129,6 +136,9 @@ public class Settings {
                             alert_default = "legacy"
                             alertraw_default = "json"
                                                         
+                            
+                            # Here you can change the default color of the message to your liking. You must use HEX codes to change the colors. The default is white (#ffffff).
+                            default_message_color = "ffffff"
                                                         
                             # In this section you can customize the alert message prefixes and colors.
                                                         
