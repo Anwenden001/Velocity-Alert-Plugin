@@ -135,16 +135,16 @@ public class Settings {
                                                         
                             alert_default = "legacy"
                             alertraw_default = "json"
+                                                       
                                                         
-                            
-                            # Here you can change the default color of the message to your liking. You must use HEX codes to change the colors. The default is white (#ffffff).
-                            default_message_color = "ffffff"
-                                                        
-                            # In this section you can customize the alert message prefixes and colors.
-                                                        
+                            # In this section you can customize the alert message prefixes and colors.                                                        
                             alert_legacy = "&c[ALERT] &f"
                             alert_json = "{"color":"red","text": "[ALERT] "}"
                             alert_xml = "<red>[ALERT]</red> "
+                            
+                            
+                            # Here you can change the default color of the message to your liking. You must use HEX codes to change the colors. The default is white (#ffffff).
+                            default_message_color = "ffffff"
                                                         
                             # If you have changed any configuration, you can use the /alertreload command to load it.
                             # If you have any questions or have found a problem, please report it to https://github.com/Anwenden001/Velocity-Alert-Plugin/issues
