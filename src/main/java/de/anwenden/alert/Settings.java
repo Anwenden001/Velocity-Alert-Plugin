@@ -138,7 +138,7 @@ public class Settings {
                                                        
                                                         
                             # In this section you can customize the alert message prefixes and colors.                                                        
-                            alert_legacy = "&c[ALERT] &f"
+                            alert_legacy = "&c[ALERT] "
                             alert_json = "{"color":"red","text": "[ALERT] "}"
                             alert_xml = "<red>[ALERT]</red> "
                             
