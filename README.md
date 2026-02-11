@@ -25,7 +25,7 @@ Here are some basic examples of those 3 different formats: (<span style="color:r
 Or you can use `/alert` by changing the format in the config file. The defaults format is lagacy.
 
 ## Installation and Setup
-1. Download the latest Alert plugin [here](https://github.com/Anwenden001/Velocity-Alert-Plugin/releases/tag/v1.5) from GitHub or from [Modrinth](https://modrinth.com/plugin/velocity-alert).
+1. Download the latest Alert plugin [here](https://github.com/Anwenden001/Velocity-Alert-Plugin/releases/tag/v1.8) from GitHub or from [Modrinth](https://modrinth.com/plugin/velocity-alert).
 2. Place the plugin in the plugins folder of your proxy server.
 3. Restart your proxy and that's it! The plugin should be loaded.
 
