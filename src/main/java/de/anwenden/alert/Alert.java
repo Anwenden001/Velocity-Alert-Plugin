@@ -14,7 +14,7 @@ import java.io.File;
 import java.nio.file.Path;
 
 @Data
-@Plugin(id = "alert", name = "Alert", version = "1.7", authors = "Anwenden & Blockyward")
+@Plugin(id = "alert", name = "Alert", version = "1.8", authors = "Anwenden & Blockyward")
 public class Alert {
 
     private final Settings settings;

@@ -120,7 +120,7 @@ public class Settings {
             String s =
                     """
                             # This is the configuration file for the Alert Plugin for Velocity.
-                            # This configuration file is generated in version 1.7.
+                            # This configuration file is generated in version 1.8.
                                                         
                                                         
                             # Here you can change the code format of the /alert and /alertraw commands.
